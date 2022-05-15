@@ -91,33 +91,33 @@ int make_comparison(int & index, Node* & h, int & total)
     else{
         return total;
     }
-    cout << "index: " << index << endl;
+    //cout << "index: " << index << endl;
     if (index == 0 || index == h->numArrays.size())
     {
         if (index == 0) {
             if (is_prime(h->numArrays[index])) {
                 total = 0;
-                cout << "total is reseted." << endl;
+                //cout << "total is reseted." << endl;
                 while (h->down != NULL) {
                     h = h->down;
                 }
                 return total;
             }
             total += h->numArrays[index];
-            cout << h->numArrays[index] << " is addded to total." << endl;
+            //cout << h->numArrays[index] << " is addded to total." << endl;
         }
         else
         {
             if (is_prime(h->numArrays[index - 1])) {
                 total = 0;
-                cout << "total is reseted." << endl;
+                //cout << "total is reseted." << endl;
                 while (h->down != NULL) {
                     h = h->down;
                 }
                 return total;
             }
             total += h->numArrays[index - 1];
-            cout << h->numArrays[index - 1] << " is addded to total." << endl;
+            //cout << h->numArrays[index - 1] << " is addded to total." << endl;
             index--;
         }
         make_comparison(index, h, total);
@@ -126,7 +126,7 @@ int make_comparison(int & index, Node* & h, int & total)
     {
         if (h->numArrays[index - 1] > h->numArrays[index])
         {
-            cout << h->numArrays[index - 1] << " is addded to total." << endl;
+            //cout << h->numArrays[index - 1] << " is addded to total." << endl;
             total += h->numArrays[index - 1];
             index--;
         }
@@ -135,13 +135,13 @@ int make_comparison(int & index, Node* & h, int & total)
             if (h->numArrays[index] == 0 && h->numArrays[index - 1] == 0)
             {
                 total = 0;
-                cout << "total is reseted." << endl;
+                //cout << "total is reseted." << endl;
                 while (h->down != NULL) {
                     h = h->down;
                 }
                 return total;
             }
-            cout << h->numArrays[index] << " is addded to total." << endl;
+            //cout << h->numArrays[index] << " is addded to total." << endl;
             total += h->numArrays[index];
         }
         make_comparison(index, h, total);
@@ -171,14 +171,14 @@ void find_max_sum(Node* & h)
         {
             if (choice1 > choice2) //Problem is here, When we compare two num and take bigger one we are ignoring the fact that other path could has bigger total at the top of the pyramid.
             {
-                cout << choice1 << " is addded to total." << endl;
+                //cout << choice1 << " is addded to total." << endl;
                 total += choice1;
                 index = i;
                 
             }
             else
             {
-                cout << choice2 << " is addded to total." << endl;
+                //cout << choice2 << " is addded to total." << endl;
                 total += choice2;
                 index = i + 1;
                
